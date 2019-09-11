@@ -31,3 +31,7 @@ $chain->dispatch();
 
 This allows us to add jobs to the chain without prior knowledge about which job would be the first.
 This may come in handy when jobs must be chained, but they are added dynamically to the chain.
+
+# Issue
+
+Please open a new issue, if you are experiencing any troubles.
