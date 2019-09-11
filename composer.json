@@ -1,0 +1,53 @@
+{
+    "name": "justiversen/laravel-job-chainer",
+    "description": "Chain Laravel jobs without having to glue it to a starting job",
+    "keywords": [
+        "Laravel job chainer",
+        "justiversen"
+    ],
+    "homepage": "https://github.com/justiversen/laravel-job-chainer",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jens Just Iversen",
+            "email": "jens@justiversen.dk",
+            "homepage": "https://justiversen.dk",
+            "role": "Developer"
+        },
+        {
+            "name": "Kristian Just",
+            "email": "kristian@justiversen.dk",
+            "homepage": "https://justiversen.dk",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "illuminate/console": "~5.8.0",
+        "facebook/webdriver": "^1.7"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JustIversen\\JobChainer\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JustIversen\\JobChainer\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "extra": {
+        "laravel": {
+            "aliases": {
+                "JobChainer": "JustIversen\\JobChainer\\Facade"
+            }
+        }
+    }
+}
