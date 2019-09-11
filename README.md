@@ -24,7 +24,7 @@ $chain->add(ProcessPodcast::class, $arg1);
 $chain->add(OptimizePodcast::class);
 $chain->add(ReleasePodcast::class, $argA, $argB);
 
-$chain->fire();
+$chain->dispatch();
 ```
 
 # Why?

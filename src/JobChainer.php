@@ -20,12 +20,16 @@ class JobChainer
     }
 
     /**
-     * Fire job chain
+     * Dispatch job chain
      *
      * @return void
      */
-    protected function fire()
+    protected function dispatch()
     {
+        if (count($this->jobs) === 0) {
+            return;
+        }
+
         $inside = array_map(function ($item) {
             return new $item[0](...$item[1]);
         }, array_slice($this->jobs, 1));
