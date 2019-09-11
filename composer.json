@@ -23,8 +23,6 @@
     ],
     "require": {
         "php": "^7.2",
-        "illuminate/console": "~5.8.0",
-        "facebook/webdriver": "^1.7"
     },
     "require-dev": {
         "orchestra/testbench": "^4.0",
