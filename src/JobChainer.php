@@ -10,11 +10,28 @@ class JobChainer
      * Add job as [MyJob::class, [$arg1, $arg2]]
      *
      * @param  array  $job
+     * @param  mixed  $args,...
      * @return object
      */
     public function add($job, ...$args)
     {
         $this->jobs[] = [$job, $args];
+
+        return $this;
+    }
+
+    /**
+     * Remove job as [MyJob::class, [$arg1, $arg2]]
+     *
+     * @param  array  $job
+     * @param  mixed  $args,...
+     * @return object
+     */
+    public function remove($job, ...$args)
+    {
+        if (($key = array_search([$job, $args], $this->jobs)) !== false) {
+            unset($this->jobs[$key]);
+        }
 
         return $this;
     }
