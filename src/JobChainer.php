@@ -41,7 +41,7 @@ class JobChainer
      *
      * @return void
      */
-    protected function dispatch()
+    public function dispatch()
     {
         if (count($this->jobs) === 0) {
             return;
@@ -53,6 +53,7 @@ class JobChainer
 
         $first = $this->jobs[0];
 
+        // dd($first[0]::withChain($inside));
         $first[0]::withChain($inside)->dispatch(...$first[1]);
     }
 }
