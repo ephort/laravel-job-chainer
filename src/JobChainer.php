@@ -39,7 +39,7 @@ class JobChainer
     /**
      * Dispatch job chain
      *
-     * @return void
+     * @return \Illuminate\Foundation\Bus\PendingDispatch
      */
     public function dispatch()
     {
@@ -53,7 +53,6 @@ class JobChainer
 
         $first = $this->jobs[0];
 
-        // dd($first[0]::withChain($inside));
-        $first[0]::withChain($inside)->dispatch(...$first[1]);
+        return $first[0]::withChain($inside)->dispatch(...$first[1]);
     }
 }
