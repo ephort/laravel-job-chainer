@@ -1,3 +1,6 @@
+![Packagist Downloads](https://img.shields.io/packagist/dt/JustIversen/laravel-job-chainer)
+![Code size](https://img.shields.io/github/languages/code-size/JustIversen/laravel-job-chainer)
+
 # Laravel Job Chainer
 
 JobChainer does chain a variable amount of jobs by adding them
