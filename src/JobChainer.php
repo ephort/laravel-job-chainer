@@ -9,7 +9,7 @@ class JobChainer
     /**
      * Add job as [MyJob::class, [$arg1, $arg2]]
      *
-     * @param  array  $job
+     * @param  string  $job
      * @param  mixed  $args,...
      * @return object
      */
@@ -23,7 +23,7 @@ class JobChainer
     /**
      * Remove job as [MyJob::class, [$arg1, $arg2]]
      *
-     * @param  array  $job
+     * @param  string  $job
      * @param  mixed  $args,...
      * @return object
      */
