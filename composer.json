@@ -22,11 +22,11 @@
         }
     ],
     "require": {
-        "php": "^8.0"
+        "php": "^7.4|^8.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.6",
-        "phpunit/phpunit": "^9.3"
+        "orchestra/testbench": "^4.0|^6.6",
+        "phpunit/phpunit": "^8.0|^9.3"
     },
     "autoload": {
         "psr-4": {
