@@ -12,7 +12,7 @@ which job will be the first to be fired.
 
 *Normal job chaining*
 
-```
+```php
 ProcessPodcast::withChain([
     new OptimizePodcast,
     new ReleasePodcast($argA, $argB)
@@ -21,7 +21,7 @@ ProcessPodcast::withChain([
 
 *With Job Chainer*
 
-```
+```php
 $chain = new JobChainer;
 
 $chain->add(ProcessPodcast::class, $arg1);
