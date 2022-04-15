@@ -2,6 +2,9 @@
 
 namespace JustIversen\JobChainer;
 
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\PendingChain;
+
 class JobChainer
 {
     protected $jobs = [];
@@ -9,7 +12,7 @@ class JobChainer
     /**
      * Add job as [MyJob::class, [$arg1, $arg2]]
      *
-     * @param  string  $job
+     * @param  string | ShouldQueue  $job
      * @param  mixed  $args,...
      * @return object
      */
@@ -48,11 +51,17 @@ class JobChainer
         }
 
         $inside = array_map(function ($item) {
-            return new $item[0](...$item[1]);
+            if ($item[0] instanceof ShouldQueue) {
+                return $item[0];
+            } else {
+                return new $item[0](...$item[1]);
+            }
         }, array_slice($this->jobs, 1));
 
         $first = $this->jobs[0];
-
+        if ($first[0] instanceof ShouldQueue) {
+            return (new PendingChain($first[0], $inside))->dispatch();
+        }
         return $first[0]::withChain($inside)->dispatch(...$first[1]);
     }
 }

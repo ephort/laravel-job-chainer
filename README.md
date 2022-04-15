@@ -31,6 +31,28 @@ $chain->add(ReleasePodcast::class, $argA, $argB);
 $chain->dispatch();
 ```
 
+##### Job chaining with different queue
+
+*Normal job chaining*
+
+```php
+ProcessPodcast::withChain([
+    (new OptimizePodcast)->onQueue('queue_for_optimize'),
+    (new ReleasePodcast($argA, $argB))->onQueue('queue_for_release'),
+])->dispatch($arg1)->onQueue('queue_for_process');
+```
+*With Job Chainer*
+
+```php
+$chain = new JobChainer;
+
+$chain->add((new ProcessPodcast($arg1))->onQueue('queue_for_process'));
+$chain->add((new OptimizePodcast)->onQueue('queue_for_optimize'));
+$chain->add((new ReleasePodcast($argA, $argB))->onQueue('queue_for_release'));
+
+$chain->dispatch();
+```
+
 # Why?
 
 This allows us to add jobs to the chain without prior knowledge about which job would be the first.
