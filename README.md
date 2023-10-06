@@ -1,6 +1,6 @@
 ![Packagist Downloads](https://img.shields.io/packagist/dt/JustIversen/laravel-job-chainer)
 ![Code size](https://img.shields.io/github/languages/code-size/JustIversen/laravel-job-chainer)
-![Build Status](https://img.shields.io/github/workflow/status/JustIversen/laravel-job-chainer/PHP%20Composer)
+![Build Status](https://img.shields.io/github/actions/workflow/status/JustIversen/laravel-job-chainer/php.yml)
 
 # Laravel Job Chainer
 
